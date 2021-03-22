@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class AssuredTestingApplicationTests {
 
-	/*@Test
+	@Test
 	public void getUsersInfo()
 	{
 		RestAssured.baseURI = "https://reqres.in/api/";
@@ -65,9 +65,9 @@ class AssuredTestingApplicationTests {
         Assertions.assertEquals(statusCode, 201);
 
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+statusCode);
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void updateUsersById(){
 
         System.out.println(" this is your put method ---------------->>> ");
@@ -90,9 +90,9 @@ class AssuredTestingApplicationTests {
         Assertions.assertEquals(statusCode, 200);
 
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+statusCode);
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void deleteUsersById(){
 
         System.out.println(" this is your delete method ---------------->>> ");
@@ -106,30 +106,28 @@ class AssuredTestingApplicationTests {
         Assertions.assertEquals(statusCode, 204);
 
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+statusCode);
-    }*/
+    }
 
-
+    /*
+     This method give 415 status
+    * this method is also runing on postman on same url but here not
+    */
     @Test
-    public void postUsers(){
+    public void registerUserUsingPostMethod(){
 
         System.out.println(" this is your post method ---------------->>> ");
         RestAssured.baseURI ="https://reqres.in/api/";
-        RequestSpecification request = RestAssured.given();
 
-        JSONObject requestParams = new JSONObject();
+        String username = "eve.holt@reqres.in";
+        String password = "piston";
 
-        requestParams.put("email", "eve.holt@reqres.in");
-        requestParams.put( "password", "cityslicka");
+        Response response = given()
+                .auth().basic(username,password)
+                .when().post("/register");      //.post("/login");
+        System.out.println("Status code  :" + response.getStatusCode());
+        System.out.println("Response --->>> " + response.asString());
 
-        request.body(requestParams.toJSONString());
 
-        Response response = request.post("/login");
-
-        int statusCode = response.getStatusCode();
-        System.out.println(" status code is ="+statusCode);
-        Assertions.assertEquals(statusCode, 200);
-
-        System.out.println("Response Body is =>  " + response.asString()+" status code is ="+statusCode);
     }
 
 }
