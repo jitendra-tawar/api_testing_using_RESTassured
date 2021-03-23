@@ -2,6 +2,7 @@ package com.jitendra.AssuredTesting;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -108,26 +109,48 @@ class AssuredTestingApplicationTests {
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+statusCode);
     }
 
-    /*
-     This method give 415 status
-    * this method is also runing on postman on same url but here not
-    */
+
     @Test
     public void registerUserUsingPostMethod(){
 
-        System.out.println(" this is your post method ---------------->>> ");
-        RestAssured.baseURI ="https://reqres.in/api/";
-
-        String username = "eve.holt@reqres.in";
-        String password = "piston";
+        String email_and_password = "{\n"+
+                "  \"email\": \"eve.holt@reqres.in\",\n" +
+                "  \"password\": \"piston\" \n}";
 
         Response response = given()
-                .auth().basic(username,password)
-                .when().post("/register");      //.post("/login");
-        System.out.println("Status code  :" + response.getStatusCode());
-        System.out.println("Response --->>> " + response.asString());
+                .auth()
+                .preemptive()
+                .basic("required_username", "required_password")
+                .header("Accept", ContentType.JSON.getAcceptHeader())
+                .contentType(ContentType.JSON)
+                .body(email_and_password)
+                .post("https://reqres.in/api/register")
+                .then().extract().response();
 
+        Assertions.assertEquals(200, response.getStatusCode());
+        System.out.println("Response Body is =>  " + response.asString()+" status code is ="+response.getStatusCode());
 
     }
 
+    @Test
+    public void loginUserUsingPostMethod(){
+
+        String email_and_password = "{\n"+
+                "  \"email\": \"eve.holt@reqres.in\",\n" +
+                "  \"password\": \"cityslicka\" \n}";
+
+        Response response = given()
+                .auth()
+                .preemptive()
+                .basic("required_username", "required_password")
+                .header("Accept", ContentType.JSON.getAcceptHeader())
+                .contentType(ContentType.JSON)
+                .body(email_and_password)
+                .post("https://reqres.in/api/login")
+                .then().extract().response();
+
+        Assertions.assertEquals(200, response.getStatusCode());
+        System.out.println("Response Body is =>  " + response.asString()+" status code is ="+response.getStatusCode());
+
+    }
 }
