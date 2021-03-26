@@ -11,9 +11,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-
-@SpringBootTest
 class AssuredTestingApplicationTests {
 
 	@Test
@@ -39,9 +36,6 @@ class AssuredTestingApplicationTests {
 
         get("/users/1").then().assertThat().body("data.first_name", equalTo("George"));
 	}
-
-
-
 
     @Test
     public void postUsers(){
@@ -151,6 +145,5 @@ class AssuredTestingApplicationTests {
 
         Assertions.assertEquals(200, response.getStatusCode());
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+response.getStatusCode());
-
     }
 }
