@@ -7,13 +7,13 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.hamcrest.MatcherAssert;
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.awt.*;
-
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 public class TestingUsingTestng {
 
@@ -79,16 +79,18 @@ public class TestingUsingTestng {
 
         response.then().assertThat().body("data.first_name", equalTo("George"));
 
-//        Assert.assertEquals(jsonPathEvaluator.get("data.first_name"),"George");
-
         System.out.println(response.statusCode());
         System.out.println(response.asString());
         System.out.println(response.getBody().asString());
         System.out.println(response.statusLine());
 
-        Assert.assertEquals(response.getStatusCode(), 200);
-        Assert.assertNotNull(jsonPathEvaluator.get("data.email"));
-        Assert.assertNull(jsonPathEvaluator.get("data.password"));
+        assertThat(response.getStatusCode(), is(equalTo(200)));
+        assertThat(jsonPathEvaluator.get("data.email"),is(notNullValue()));
+        assertThat(jsonPathEvaluator.get("data.password"),is(nullValue()));
+
+//        Assert.assertEquals(response.getStatusCode(), 200);
+//        Assert.assertNotNull(jsonPathEvaluator.get("data.email"));
+//        Assert.assertNull(jsonPathEvaluator.get("data.password"));
     }
 
 
@@ -100,7 +102,7 @@ public class TestingUsingTestng {
 
         JSONObject requestParams = new JSONObject();
 
-        requestParams.put("email", "jiten123@gmail,com");
+        requestParams.put("email", "jiten123@gmail.com");
         requestParams.put( "first_name", "Jitendra");
         requestParams.put( "last_name","Tanwar");
         requestParams.put("avatar", "https://reqres.in/img/faces/7-image.jpg");
@@ -111,8 +113,7 @@ public class TestingUsingTestng {
 
         int statusCode = response.getStatusCode();
         System.out.println(" status code is ="+statusCode);
-        Assert.assertEquals(statusCode, 201);
-
+        assertThat(statusCode, is(equalTo(201)));
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+statusCode);
     }
 
@@ -135,7 +136,7 @@ public class TestingUsingTestng {
 
         int statusCode = response.getStatusCode();
         System.out.println(" status code is ="+statusCode);
-        Assert.assertEquals(statusCode, 200);
+        assertThat(statusCode, is(equalTo(200)));
 
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+statusCode);
     }
@@ -151,7 +152,7 @@ public class TestingUsingTestng {
 
         int statusCode = response.getStatusCode();
         System.out.println(" status code is ="+statusCode);
-        Assert.assertEquals(statusCode, 204);
+        assertThat(statusCode, is(equalTo(204)));
 
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+statusCode);
     }
@@ -174,7 +175,7 @@ public class TestingUsingTestng {
                 .post("https://reqres.in/api/register")
                 .then().extract().response();
 
-        Assert.assertEquals(200, response.getStatusCode());
+        assertThat(response.getStatusCode(), is(equalTo(200)));
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+response.getStatusCode());
 
     }
@@ -196,7 +197,7 @@ public class TestingUsingTestng {
                 .post("https://reqres.in/api/login")
                 .then().extract().response();
 
-        Assert.assertEquals(200, response.getStatusCode());
+        assertThat(response.getStatusCode(), is(equalTo(200)));
         System.out.println("Response Body is =>  " + response.asString()+" status code is ="+response.getStatusCode());
     }
 }
