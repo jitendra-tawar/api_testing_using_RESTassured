@@ -7,17 +7,20 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.hamcrest.MatcherAssert;
 import org.json.simple.JSONObject;
-import org.testng.Assert;
 import org.testng.annotations.*;
 
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
 public class TestingUsingTestng {
+    private String url= null;
+    private String email = null;
+    private String password =null;
+    LombokAnnotetiontest obj1 = new LombokAnnotetiontest(url,email,password);
 
-    private String url;
+    LombokAnnotetiontest obj = new LombokAnnotetiontest();
+
 
     @BeforeSuite
     public void beforeSuite(){
@@ -50,7 +53,9 @@ public class TestingUsingTestng {
     @BeforeTest
     public void beforeTest(){
         System.out.println("Before  Test   ->>>>");
-        url = "https://reqres.in/api/";
+        url= obj.getBaseURL();
+        email = obj.getEmail();
+        password = obj.getPassword();
     }
     @AfterTest
     public void afterTest(){
@@ -61,12 +66,10 @@ public class TestingUsingTestng {
     @Test(priority = 1)
     public void getUsersInfo()
     {
-
+        System.out.println(obj.toString());
         System.out.println(" this is your get method ---------------->>> TEST 1");
-        RestAssured.baseURI = url;
-
+        RestAssured.baseURI = url;  //  or RestAssured.baseURI ="https://reqres.in/api/"
         RequestSpecification httpRequest = given();
-
         Response response = httpRequest.get("/users/1");
 
         JsonPath jsonPathEvaluator = response.jsonPath();
@@ -162,8 +165,8 @@ public class TestingUsingTestng {
     public void registerUserUsingPostMethod(){
         System.out.println(" this is your register  method ---------------->>> TEST 5");
         String email_and_password = "{\n"+
-                "  \"email\": \"eve.holt@reqres.in\",\n" +
-                "  \"password\": \"piston\" \n}";
+                "  \"email\": \""+email+"\",\n" +
+                "  \"password\": \""+password+"\" \n}";
 
         Response response = given()
                 .auth()
@@ -184,8 +187,8 @@ public class TestingUsingTestng {
     public void loginUserUsingPostMethod(){
         System.out.println(" this is your login  method ---------------->>> TEST 6");
         String email_and_password = "{\n"+
-                "  \"email\": \"eve.holt@reqres.in\",\n" +
-                "  \"password\": \"cityslicka\" \n}";
+                "  \"email\": \""+email+"\",\n" +
+                "  \"password\": \""+password+"\" \n}";
 
         Response response = given()
                 .auth()
