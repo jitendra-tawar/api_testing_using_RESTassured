@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.lise.test" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-04-02T17:40:46" hostname="jitendra-HP-Laptop-15-da0xxx" time="24.554">
+  <properties/>
+  <testcase name="getUsersInfo" classname="com.lise.test" time="8.122"/>
+  <testcase name="postUsers" classname="com.lise.test" time="3.821"/>
+  <testcase name="updateUsersById" classname="com.lise.test" time="3.169"/>
+  <testcase name="deleteUsersById" classname="com.lise.test" time="3.997"/>
+  <testcase name="registerUserUsingPostMethod" classname="com.lise.test" time="2.755"/>
+  <testcase name="loginUserUsingPostMethod" classname="com.lise.test" time="2.645"/>
+  <system-out><![CDATA[Before Class ---- >>>>
+Before mathod ---- >>>>
+LombokAnnotationtest(baseURL=null, email=null, password=null)
+ this is your get method ---------------->>> TEST 1
+id =1
+email =george.bluth@reqres.in
+first_name =George
+last_name =Bluth
+avatar =https://reqres.in/img/faces/1-image.jpg
+200
+{"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+{"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+HTTP/1.1 200 OK
+after method---- >>>>
+Before mathod ---- >>>>
+ this is your post method ---------------->>> TEST 2
+ status code is =201
+Response Body is =>  {"id":"484","createdAt":"2021-04-02T17:40:59.571Z"} status code is =201
+after method---- >>>>
+Before mathod ---- >>>>
+ this is your put or update method ---------------->>> TEST 3
+ status code is =200
+Response Body is =>  {"updatedAt":"2021-04-02T17:41:02.761Z"} status code is =200
+after method---- >>>>
+Before mathod ---- >>>>
+ this is your delete method ---------------->>> TEST 4
+ status code is =204
+Response Body is =>   status code is =204
+after method---- >>>>
+Before mathod ---- >>>>
+ this is your register  method ---------------->>> TEST 5
+Response Body is =>  {"id":4,"token":"QpwL5tke4Pnpja7X4"} status code is =200
+after method---- >>>>
+Before mathod ---- >>>>
+ this is your login  method ---------------->>> TEST 6
+Response Body is =>  {"token":"QpwL5tke4Pnpja7X4"} status code is =200
+after method---- >>>>
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

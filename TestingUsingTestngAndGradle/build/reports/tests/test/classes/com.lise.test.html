@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.lise.test</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.lise.test</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.lise.html">com.lise</a> &gt; test</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">24.509s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">deleteUsersById</td>
+<td class="success">3.997s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getUsersInfo</td>
+<td class="success">8.122s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">loginUserUsingPostMethod</td>
+<td class="success">2.645s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">postUsers</td>
+<td class="success">3.821s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">registerUserUsingPostMethod</td>
+<td class="success">2.755s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">updateUsersById</td>
+<td class="success">3.169s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Before Class ---- &gt;&gt;&gt;&gt;
+Before mathod ---- &gt;&gt;&gt;&gt;
+LombokAnnotationtest(baseURL=null, email=null, password=null)
+ this is your get method ----------------&gt;&gt;&gt; TEST 1
+id =1
+email =george.bluth@reqres.in
+first_name =George
+last_name =Bluth
+avatar =https://reqres.in/img/faces/1-image.jpg
+200
+{&quot;data&quot;:{&quot;id&quot;:1,&quot;email&quot;:&quot;george.bluth@reqres.in&quot;,&quot;first_name&quot;:&quot;George&quot;,&quot;last_name&quot;:&quot;Bluth&quot;,&quot;avatar&quot;:&quot;https://reqres.in/img/faces/1-image.jpg&quot;},&quot;support&quot;:{&quot;url&quot;:&quot;https://reqres.in/#support-heading&quot;,&quot;text&quot;:&quot;To keep ReqRes free, contributions towards server costs are appreciated!&quot;}}
+{&quot;data&quot;:{&quot;id&quot;:1,&quot;email&quot;:&quot;george.bluth@reqres.in&quot;,&quot;first_name&quot;:&quot;George&quot;,&quot;last_name&quot;:&quot;Bluth&quot;,&quot;avatar&quot;:&quot;https://reqres.in/img/faces/1-image.jpg&quot;},&quot;support&quot;:{&quot;url&quot;:&quot;https://reqres.in/#support-heading&quot;,&quot;text&quot;:&quot;To keep ReqRes free, contributions towards server costs are appreciated!&quot;}}
+HTTP/1.1 200 OK
+after method---- &gt;&gt;&gt;&gt;
+Before mathod ---- &gt;&gt;&gt;&gt;
+ this is your post method ----------------&gt;&gt;&gt; TEST 2
+ status code is =201
+Response Body is =&gt;  {&quot;id&quot;:&quot;484&quot;,&quot;createdAt&quot;:&quot;2021-04-02T17:40:59.571Z&quot;} status code is =201
+after method---- &gt;&gt;&gt;&gt;
+Before mathod ---- &gt;&gt;&gt;&gt;
+ this is your put or update method ----------------&gt;&gt;&gt; TEST 3
+ status code is =200
+Response Body is =&gt;  {&quot;updatedAt&quot;:&quot;2021-04-02T17:41:02.761Z&quot;} status code is =200
+after method---- &gt;&gt;&gt;&gt;
+Before mathod ---- &gt;&gt;&gt;&gt;
+ this is your delete method ----------------&gt;&gt;&gt; TEST 4
+ status code is =204
+Response Body is =&gt;   status code is =204
+after method---- &gt;&gt;&gt;&gt;
+Before mathod ---- &gt;&gt;&gt;&gt;
+ this is your register  method ----------------&gt;&gt;&gt; TEST 5
+Response Body is =&gt;  {&quot;id&quot;:4,&quot;token&quot;:&quot;QpwL5tke4Pnpja7X4&quot;} status code is =200
+after method---- &gt;&gt;&gt;&gt;
+Before mathod ---- &gt;&gt;&gt;&gt;
+ this is your login  method ----------------&gt;&gt;&gt; TEST 6
+Response Body is =&gt;  {&quot;token&quot;:&quot;QpwL5tke4Pnpja7X4&quot;} status code is =200
+after method---- &gt;&gt;&gt;&gt;
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.7</a> at 2 Apr, 2021 11:11:10 PM</p>
+</div>
+</div>
+</body>
+</html>
