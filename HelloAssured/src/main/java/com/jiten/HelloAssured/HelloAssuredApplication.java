@@ -1,13 +1,14 @@
-package com.jitendra.AssuredTesting;
+package com.jiten.HelloAssured;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AssuredTestingApplication {
+public class HelloAssuredApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AssuredTestingApplication.class, args);
-	}
 
+		System.out.println("HEllO WORLD");
+		SpringApplication.run(HelloAssuredApplication.class, args);
+	}
 }
