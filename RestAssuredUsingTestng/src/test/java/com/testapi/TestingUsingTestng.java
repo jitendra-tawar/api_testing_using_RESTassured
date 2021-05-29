@@ -66,7 +66,7 @@ public class TestingUsingTestng {
     @Test(priority = 1)
     public void getUsersInfo()
     {
-        System.out.println(obj.toString());
+        System.out.println(obj1.toString());
         System.out.println(" this is your get method ---------------->>> TEST 1");
         RestAssured.baseURI = url;  //  or RestAssured.baseURI ="https://reqres.in/api/"
         RequestSpecification httpRequest = given();
